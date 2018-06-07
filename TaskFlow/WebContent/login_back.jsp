@@ -1,13 +1,10 @@
-<!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<title>login</title>
-<script src="loginjava.js">
-	</script>
+<title>로그인</title>
 <script>
 function checkValue()
 {
@@ -27,19 +24,17 @@ function checkValue()
 }
 
 </script>
-<link href="loginstyle.css" rel="stylesheet" type="text/css">
-</head>
 
+</head>
 <body>
-<img class="logo" src="assets/loginpage/logo.png" width="580" height="240" alt=""/>
-<form action="login.do" method="post" onsubmit="return checkValue()"class="loginform">
-	<input name="id" type="text" class="idinput" placeholder="아이디">
-	<input name="pw" type="password" class="pwinput" placeholder="비밀번호">
-	<input src="assets/loginpage/Login Button.png" type="image" class="loginsubmit">
-	<div class="option"><a href="joinui.do">회원가입</a> | <a href="search.do">ID/PW 찾기</a></div>
-	<div class="snslogin"> <img src="assets/loginpage/google_icon.png" alt="" width="48" height="48" class="googleplus"/> <img src="assets/loginpage/facebook_icon.png" alt="" width="48" height="48" class="facebook"/> <img src="assets/loginpage/kakako_icon.png" alt="" width="48" height="48" class="kakaotalk"/> </div>
-</form>
-<% 
+<h1>로그인 화면</h1>
+ <form action="login.do" method="post" onsubmit="return checkValue()">
+	아이디<input type="text" name="id"><br />
+	비밀번호<input type="password" name="pw"><br />
+	<input type="submit" value="로그인">
+  </form>
+  
+  <% 
             // 아이디, 비밀번호가 틀릴경우 화면에 메시지 표시
             // LoginPro.jsp에서 로그인 처리 결과에 따른 메시지를 보낸다.
             String msg=request.getParameter("msg");
@@ -54,6 +49,9 @@ function checkValue()
                 out.println("<br>");
                 out.println("<font color='red' size='5'>아이디를 확인해 주세요.</font>");
             }
-        %>
+        %>    
+
+  <a href="joinui.do">회원가입</a>
+  <a href="search.do">ID/PW 찾기</a>
 </body>
 </html>

@@ -21,7 +21,6 @@ public class TaskFlowProjectJoinCmd implements TaskFlowCmd {
 
 		ProjectDAO dao = new ProjectDAO();
 		ProjectDO data = dao.getInfo(pCode);
-		System.out.println("By TFPJC pCode = " + data.getpMember());
 
 
 		ArrayList<Integer> pCodeList = dao.codeList();

@@ -19,7 +19,6 @@ public class TaskFlowMemberLoginCmd implements TaskFlowCmd {
 		int check = dao.loginCheck(id, pw);
 		
 		String msg = "";
-		System.out.println(id);
 		if(check == 1) {
 			session.setAttribute("sessionID",id);
 			if(session.isNew()) {

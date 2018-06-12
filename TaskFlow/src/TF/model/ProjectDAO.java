@@ -48,7 +48,6 @@ public class ProjectDAO {
 		String query = "select * from PROJECT where pCode in";
 		System.out.println(pCodeList);
 			query += "(" + pCodeList + ")";
-		System.out.println(query);
 		ArrayList<ProjectDO> datas = new ArrayList<ProjectDO>();
 
 		try {

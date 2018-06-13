@@ -43,8 +43,8 @@ public class TaskFlowProjectEntryCmd implements TaskFlowCmd {
 		if(tmp != null)
 			pMember= parser.parseProjectMember(tmp);
 
-		request.setAttribute("NoticeList", noticeList);
-		request.setAttribute("SubpList", SubpList);
+		request.setAttribute("subProjectList", SubpList);
+		request.setAttribute("NoticeList", noticeList);		
 		request.setAttribute("pMember", pMember);		
 		request.setAttribute("pManager", project.getpManager());
 		request.setAttribute("pCode", nFrom);

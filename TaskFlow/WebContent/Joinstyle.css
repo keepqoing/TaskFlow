@@ -39,14 +39,11 @@ html {
 	width: 500px;
 }
 .buttonwrap {
-	padding: 10px;
-	width: 285px;
 	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
+	text-align: center;
 }
 .button1 {
-	display: inline-block;
+	margin: 10px;
 	width: 140px;
 	height: 40px;
 	background: #2980B9;
@@ -56,6 +53,7 @@ html {
 	line-height: 33px;
 }
 .button2 {
+	margin: 10px;
 	width: 140px;
 	height: 40px;
 	background: #D55300;

@@ -39,26 +39,32 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+	
+	<!-- 과제 부분 -->
 
 	<table border="1" cellpadding="10px">
 		<tr>
-			<td>과제 제목</td>
-			<td>과제 설명</td>
-			<td>과제 시작일자</td>
-			<td>과제 마감일자</td>
-			<td>과제 상태</td>
+			<td colspan = "3">과제</td>
+			<td><a href="SubProjectView.do?pCode=${pCode}">더 보기</a></td>
 		</tr>
-
-		<c:forEach var="aaa" items="${SubpList}">
+		
+		<tr>
+			<td>제목</td>
+			<td>내용</td>
+			<td>시작일</td>
+			<td>종료일</td>
+			<td>상태</td>
+		</tr>
+		<c:forEach var="bbb" items="${subProjectList}">
 			<tr>
-				<td>${aaa.SubpName}</td>
-				<td>${aaa.SubpDescript}</td>
-				<td>${aaa.SubpStartDate}</td>
-				<td>${aaa.SubpEndDate}</td>
-				<td>${aaa.SubpState}</td>
+				<td>${bbb.subpName}</td>
+				<td>${bbb.subpDescript}</td>
+				<td>${bbb.subpStartDate}</td>
+				<td>${bbb.subpEndDate}</td>
+				<td>${bbb.subpState}</td>
 			</tr>
 		</c:forEach>
+		 
 	</table>
 
 	<table border="1" cellpadding="10px">
@@ -71,9 +77,10 @@
 		</tr>
 	</table>
 
-
+<!--  
 	<a href="createnoticeui.do">공지사항 생성</a>
 	<a href="createSubprojectui.do">과제 생성</a>
+	-->
 	<a href="pjlist.do">프로젝트 목록 보기</a>
 	<form method="post" action="logout.do">
 		<input type="submit" value="로그아웃" />

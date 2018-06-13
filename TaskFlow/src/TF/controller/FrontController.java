@@ -32,6 +32,11 @@ import TF.action.TaskFlowProjectNoticeModifyCmd;
 import TF.action.TaskFlowProjectNoticeUpdateCmd;
 import TF.action.TaskFlowProjectOutCmd;
 import TF.action.TaskFlowProjectUpdateCmd;
+import TF.action.TaskFlowSubProjectCmd;
+import TF.action.TaskFlowSubProjectCreateCmd;
+import TF.action.TaskFlowSubProjectDeleteCmd;
+import TF.action.TaskFlowSubProjectModifyCmd;
+import TF.action.TaskFlowSubProjectUpdateCmd;
 
 /**
  * Servlet implementation class MemberFrontController1
@@ -179,7 +184,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			nextPage = "logout.do";
 		}	
-		
+
 		//공지사항 페이지
 		if(com.equals("/projectNotice.do")){
 			command = new TaskFlowProjectNoticeCmd();
@@ -219,36 +224,44 @@ public class FrontController extends HttpServlet {
 			nextPage = "projectNotice.do";
 		}
 
+
+		//과제 페이지
+		if(com.equals("/SubProjectView.do")){
+			command = new TaskFlowSubProjectCmd();
+			command.execute(request, response);
+			nextPage = "SubProjectView.jsp";
+		}
+
 		//과제 생성 폼
 		if(com.equals("/createSubprojectui.do")){
-			nextPage = "createproject.jsp";
+			nextPage = "createSubproject.jsp";
 		}
 		//과제 생성
 		if(com.equals("/createSubproject.do")){
-			command = new TaskFlowProjectCreateCmd();
+			command = new TaskFlowSubProjectCreateCmd();
 			command.execute(request, response);
-			nextPage = "projectEntry.do";
+			nextPage = "SubProjectView.do";
 		}
 
 		// 과제 수정
-		if(com.equals("/Subprojectmodify.do")){
-			command = new TaskFlowProjectModifyCmd();
+		if(com.equals("/SubProjectmodify.do")){
+			command = new TaskFlowSubProjectModifyCmd();
 			command.execute(request, response);
-			nextPage = "projectmodify.jsp";
+			nextPage = "SubProjectModify.jsp";
 		}	
 
 		//과제 정보 업데이트
-		if(com.equals("/Subprojectupdate.do")){
-			command = new TaskFlowProjectUpdateCmd();
+		if(com.equals("/SubProjectupdate.do")){
+			command = new TaskFlowSubProjectUpdateCmd();
 			command.execute(request, response);
-			nextPage = "projectEntry.do";
+			nextPage = "SubProjectView.do";
 		}	
 
 		//과제 삭제
-		if(com.equals("/Subprojectdelete.do")){
-			command = new TaskFlowProjectDeleteCmd();
+		if(com.equals("/SubProjectdelete.do")){
+			command = new TaskFlowSubProjectDeleteCmd();
 			command.execute(request, response);
-			nextPage = "projectEntry.do";
+			nextPage = "SubProjectView.do";
 		}
 
 

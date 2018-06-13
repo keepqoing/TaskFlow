@@ -31,8 +31,8 @@ public class SubProjectDAO {
 				tmp.setSubpId(rs.getInt("SubpId"));
 				tmp.setSubpName(rs.getString("SubpName"));
 				tmp.setSubpDescript(rs.getString("SubpDescript"));
-				tmp.setSubpStartDate(rs.getDate("SubpStartDate"));
-				tmp.setSubpEndDate(rs.getDate("SubpEndDate"));
+				tmp.setSubpStartDate(rs.getString("SubpStartDate"));
+				tmp.setSubpEndDate(rs.getString("SubpEndDate"));
 				tmp.setSubpState(rs.getInt("SubpState"));
 				tmp.setSubpFrom(rs.getInt("SubpFrom"));
 				datas.add(tmp);
@@ -63,8 +63,8 @@ public class SubProjectDAO {
 				tmp.setSubpId(rs.getInt("SubpId"));
 				tmp.setSubpName(rs.getString("SubpName"));
 				tmp.setSubpDescript(rs.getString("SubpDescript"));
-				tmp.setSubpStartDate(rs.getDate("SubpStartDate"));
-				tmp.setSubpEndDate(rs.getDate("SubpEndDate"));
+				tmp.setSubpStartDate(rs.getString("SubpStartDate"));
+				tmp.setSubpEndDate(rs.getString("SubpEndDate"));
 				tmp.setSubpState(rs.getInt("SubpState"));
 				tmp.setSubpFrom(rs.getInt("SubpFrom"));
 				datas.add(tmp);
@@ -81,16 +81,16 @@ public class SubProjectDAO {
 	
 	
 	// 공지사항 생성
-	public void createSubProject(String _SubpName, String _SubpDescript, Date _SubpStartDate, Date _SubpEndDate , int _SubpFrom) {
+	public void createSubProject(String _SubpName, String _SubpDescript, String _SubpStartDate, String _SubpEndDate , int _SubpFrom) {
 		connectDB();
-		String query = "insert into SubProject (SubpName, SubpDescript, SubpStartDate, SubpEndDate, SubpFrom) values(?,?,?,?,?)";		
+		String query = "insert into SubProject (SubpName, SubpDescript, SubpStartDate, SubpEndDate, SubpFrom) values(?,?,date_format(?,'%Y-%m-%d'),date_format(?,'%Y-%m-%d'),?)";		
 
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, _SubpName);
 			pstmt.setString(2, _SubpDescript);
-			pstmt.setDate(3, _SubpStartDate);
-			pstmt.setDate(4, _SubpEndDate);
+			pstmt.setString(3, _SubpStartDate);
+			pstmt.setString(4, _SubpEndDate);
 			pstmt.setInt(5, _SubpFrom);
 
 			int n = pstmt.executeUpdate();
@@ -120,8 +120,8 @@ public class SubProjectDAO {
 			data.setSubpId(rs.getInt("SubpId"));
 			data.setSubpName(rs.getString("SubpName"));
 			data.setSubpDescript(rs.getString("SubpDescript"));
-			data.setSubpStartDate(rs.getDate("SubpStartDate"));
-			data.setSubpEndDate(rs.getDate("SubpEndDate"));
+			data.setSubpStartDate(rs.getString("SubpStartDate"));
+			data.setSubpEndDate(rs.getString("SubpEndDate"));
 			data.setSubpState(rs.getInt("SubpState"));
 			data.setSubpFrom(rs.getInt("SubpFrom"));
 		}
@@ -137,17 +137,16 @@ public class SubProjectDAO {
 	}
 	
 	// 공지사항 갱신
-	public void updateSubProject(String _SubpName, String _SubpDescript, Date _SubpEndDate, int _SubpState, int _SubpId) {
+	public void updateSubProject(String _SubpName, String _SubpDescript, String _SubpEndDate, int _SubpId) {
 		connectDB();
-		String query = "update SubProject set SubpName=?, SubpDescript=?, SubpEndDate=?, SubpState=? where SubpId=?";
+		String query = "update SubProject set SubpName=?, SubpDescript=?, SubpEndDate=? where SubpId=?";
 
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, _SubpName);
 			pstmt.setString(2, _SubpDescript);
-			pstmt.setDate(3, _SubpEndDate);
-			pstmt.setInt(4, _SubpState);
-			pstmt.setInt(5, _SubpId);
+			pstmt.setString(3, _SubpEndDate);
+			pstmt.setInt(4, _SubpId);
 
 			int n = pstmt.executeUpdate();
 		} catch (SQLException e) {

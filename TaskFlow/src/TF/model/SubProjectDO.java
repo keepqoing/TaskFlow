@@ -1,83 +1,83 @@
 package TF.model;
 
-import java.sql.Date;
-
 public class SubProjectDO {
-	private int SubpId;
-	private String SubpName;
-	private String SubpDescript;
-	private Date SubpStartDate;
-	private Date SubpEndDate;
-	private int SubpState;
-	private int SubpFrom;
+	private int subpId;
+	private String subpName;
+	private String subpDescript;
+	private String subpStartDate;
+	private String subpEndDate;
+	private int subpState;
+	private int subpFrom;
 	
 	public SubProjectDO() {}
 	
-	public SubProjectDO(int SubpId, String SubpName, String SubpDescript, Date SubpStartDate, Date SubpEndDate, int SubpState, int SubpFrom) {
-		this.SubpId = SubpId;
-		this.SubpName = SubpName;
-		this.SubpDescript = SubpDescript;
-		this.SubpStartDate = SubpStartDate;
-		this.SubpEndDate = SubpEndDate;
-		this.SubpState = SubpState;
-		this.SubpFrom = SubpFrom;
+	public SubProjectDO(int SubpId, String SubpName, String SubpDescript, String SubpStartDate, String SubpEndDate, int SubpState, int SubpFrom) {
+		this.subpId = SubpId;
+		this.subpName = SubpName;
+		this.subpDescript = SubpDescript;
+		this.subpStartDate = SubpStartDate;
+		this.subpEndDate = SubpEndDate;
+		this.subpState = SubpState;
+		this.subpFrom = SubpFrom;
 	}
-	
+
 	public int getSubpId() {
-		return SubpId;
+		return subpId;
 	}
 
 	public void setSubpId(int subpId) {
-		SubpId = subpId;
+		this.subpId = subpId;
 	}
 
 	public String getSubpName() {
-		return SubpName;
+		return subpName;
 	}
 
 	public void setSubpName(String subpName) {
-		SubpName = subpName;
+		this.subpName = subpName;
 	}
 
 	public String getSubpDescript() {
-		return SubpDescript;
+		return subpDescript;
 	}
 
 	public void setSubpDescript(String subpDescript) {
-		SubpDescript = subpDescript;
+		this.subpDescript = subpDescript;
 	}
 
-	public Date getSubpStartDate() {
-		return SubpStartDate;
+	public String getSubpStartDate() {
+		return subpStartDate;
 	}
 
-	public void setSubpStartDate(Date subpStartDate) {
-		SubpStartDate = subpStartDate;
+	public void setSubpStartDate(String subpStartDate) {
+		this.subpStartDate = subpStartDate;
 	}
 
-	public Date getSubpEndDate() {
-		return SubpEndDate;
+	public String getSubpEndDate() {
+		return subpEndDate;
 	}
 
-	public void setSubpEndDate(Date subpEndDate) {
-		SubpEndDate = subpEndDate;
+	public void setSubpEndDate(String subpEndDate) {
+		this.subpEndDate = subpEndDate;
 	}
 
 	public int getSubpState() {
-		return SubpState;
+		return subpState;
 	}
 
 	public void setSubpState(int subpState) {
-		SubpState = subpState;
+		this.subpState = subpState;
 	}
 
 	public int getSubpFrom() {
-		return SubpFrom;
+		return subpFrom;
 	}
 
 	public void setSubpFrom(int subpFrom) {
-		SubpFrom = subpFrom;
+		this.subpFrom = subpFrom;
 	}
+	
+	
 	
 	
 

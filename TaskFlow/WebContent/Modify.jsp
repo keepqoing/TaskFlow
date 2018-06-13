@@ -23,7 +23,7 @@
 	<input type=button value="취소" onClick="history.back();">
   </form>
   
- <a href="list.do">목록보기</a>
+ <a href="pjlist.do">프로젝트 목록보기</a>
  <a href="delete.do?id=${data.id}">회원 탈퇴</a>
 </body>
 </html>

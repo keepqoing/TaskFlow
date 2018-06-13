@@ -40,19 +40,22 @@
 
 		<c:forEach var="aaa" items="${pList}">
 			<tr>
-				<td><a href="projectmodify.do?pCode=${aaa.pCode}">${aaa.pName}</a></td>
+				<td><a href="projectEntry.do?pCode=${aaa.pCode}">${aaa.pName}</a></td>
 				<td>${aaa.pDescript}</td>
 				<td>${aaa.pManager}</td>
 				<td>${aaa.pMember}</td>
 				<td>${aaa.pCode}</td>
-				
-				<c:set var="tmp" value="" ></c:set>
-				
-				<c:forEach var="pmL" items="${pmList}">				
-						<c:if test="${aaa.pCode eq pmL}">
-							<td><a href="projectmodify.do?pCode=${aaa.pCode}">프로젝트편집</a></td>
-						</c:if>
-				</c:forEach>
+				<c:choose>
+					<c:when test="${aaa.pManager eq loginmember}">
+						<td><a href="projectmodify.do?pCode=${aaa.pCode}">프로젝트편집2</a></td>
+					</c:when>
+
+					<c:otherwise>
+						<td><a href="projectout.do?pCode=${aaa.pCode}">프로젝트탈퇴2</a></td>
+					</c:otherwise>
+				</c:choose>
+
+
 				
 			</tr>
 		</c:forEach>
@@ -61,8 +64,8 @@
 	<a href="createprojectui.do">프로젝트 생성</a>
 	<a href="projectjoinui.do">프로젝트 참여</a>
 	<a href="modify.do">회원정보 수정</a>
-	 <form method="post" action="logout.do">
-    <input type="submit" value="로그아웃"/>
-    </form>
+	<form method="post" action="logout.do">
+		<input type="submit" value="로그아웃" />
+	</form>
 </body>
 </html>

@@ -19,11 +19,18 @@ import TF.action.TaskFlowMemberLogoutCmd;
 import TF.action.TaskFlowMemberModifyCmd;
 import TF.action.TaskFlowMemberProjectListCmd;
 import TF.action.TaskFlowMemberUpdateCmd;
+import TF.action.TaskFlowNoticeCreateCmd;
 import TF.action.TaskFlowProjectCreateCmd;
 import TF.action.TaskFlowProjectDeleteCmd;
+import TF.action.TaskFlowProjectEntryCmd;
 import TF.action.TaskFlowProjectJoinCmd;
 import TF.action.TaskFlowProjectListCmd;
 import TF.action.TaskFlowProjectModifyCmd;
+import TF.action.TaskFlowProjectNoticeCmd;
+import TF.action.TaskFlowProjectNoticeDeleteCmd;
+import TF.action.TaskFlowProjectNoticeModifyCmd;
+import TF.action.TaskFlowProjectNoticeUpdateCmd;
+import TF.action.TaskFlowProjectOutCmd;
 import TF.action.TaskFlowProjectUpdateCmd;
 
 /**
@@ -58,6 +65,12 @@ public class FrontController extends HttpServlet {
 			command = new TaskFlowProjectListCmd();
 			command.execute(request, response);
 			nextPage = "projectlist.jsp";
+		}
+
+		if(com.equals("/projectEntry.do")){
+			command = new TaskFlowProjectEntryCmd();
+			command.execute(request, response);
+			nextPage = "projectEntry.jsp";
 		}
 
 		if(com.equals("/pjlist.do")){
@@ -104,6 +117,13 @@ public class FrontController extends HttpServlet {
 			nextPage = "pjlist.do";
 		}	
 
+		//프로젝트 탈퇴
+		if(com.equals("/projectout.do")){
+			command = new TaskFlowProjectOutCmd();
+			command.execute(request, response);
+			nextPage = "pjlist.do";
+		}	
+
 		//프로젝트 참여 폼
 		if(com.equals("/projectjoinui.do")){
 			nextPage = "projectjoin.jsp";
@@ -118,8 +138,6 @@ public class FrontController extends HttpServlet {
 		if(com.equals("/login.do")) {
 			command = new TaskFlowMemberLoginCmd();
 			command.execute(request, response);
-			System.out.println("By FrontController session = "+session.getAttribute("sessionID"));
-
 			nextPage = (String) request.getAttribute("msg");
 		}
 
@@ -161,6 +179,80 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			nextPage = "logout.do";
 		}	
+		
+		//공지사항 페이지
+		if(com.equals("/projectNotice.do")){
+			command = new TaskFlowProjectNoticeCmd();
+			command.execute(request, response);
+			nextPage = "projectNotice.jsp";
+		}
+
+		//공지사항 생성 폼
+		if(com.equals("/createnoticeui.do")){
+			nextPage = "createnotice.jsp";
+		}
+		//공지사항 생성
+		if(com.equals("/createnotice.do")){
+			command = new TaskFlowNoticeCreateCmd();
+			command.execute(request, response);
+			nextPage = "projectNotice.do";
+		}
+
+		// 공지사항 수정
+		if(com.equals("/noticemodify.do")){
+			command = new TaskFlowProjectNoticeModifyCmd();
+			command.execute(request, response);
+			nextPage = "projectNoticeModify.jsp";
+		}	
+
+		//공지사항 정보 업데이트
+		if(com.equals("/noticeupdate.do")){
+			command = new TaskFlowProjectNoticeUpdateCmd();
+			command.execute(request, response);
+			nextPage = "projectNotice.do";
+		}	
+
+		//공지사항 삭제
+		if(com.equals("/noticedelete.do")){
+			command = new TaskFlowProjectNoticeDeleteCmd();
+			command.execute(request, response);
+			nextPage = "projectNotice.do";
+		}
+
+		//과제 생성 폼
+		if(com.equals("/createSubprojectui.do")){
+			nextPage = "createproject.jsp";
+		}
+		//과제 생성
+		if(com.equals("/createSubproject.do")){
+			command = new TaskFlowProjectCreateCmd();
+			command.execute(request, response);
+			nextPage = "projectEntry.do";
+		}
+
+		// 과제 수정
+		if(com.equals("/Subprojectmodify.do")){
+			command = new TaskFlowProjectModifyCmd();
+			command.execute(request, response);
+			nextPage = "projectmodify.jsp";
+		}	
+
+		//과제 정보 업데이트
+		if(com.equals("/Subprojectupdate.do")){
+			command = new TaskFlowProjectUpdateCmd();
+			command.execute(request, response);
+			nextPage = "projectEntry.do";
+		}	
+
+		//과제 삭제
+		if(com.equals("/Subprojectdelete.do")){
+			command = new TaskFlowProjectDeleteCmd();
+			command.execute(request, response);
+			nextPage = "projectEntry.do";
+		}
+
+
+
 		//		
 		//		//�� �˻� �ϱ�
 		//		if(com.equals("/search.do")){

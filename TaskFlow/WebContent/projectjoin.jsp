@@ -23,7 +23,7 @@ function checkValue()
 <body>
 <h1>로그인 화면</h1>
  <form action="projectjoin.do" method="post" onsubmit="return checkValue()">
-	아이디<input type="text" name="pCode"><br />
+	참여코드 입력<input type="text" name="pCode"><br />
 	<input type="submit" value="참여하기!">
   </form>
   
@@ -44,7 +44,6 @@ function checkValue()
             }
         %>    
 
-  <a href="joinui.do">회원가입</a>
-  <a href="search.do">ID/PW 찾기</a>
+  <a href="pjlist.do">프로젝트 목록 보기</a>
 </body>
 </html>

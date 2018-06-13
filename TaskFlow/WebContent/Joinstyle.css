@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+html {
+	background-image: url("assets/background_1.png");
+	height: 100%;
+	background-attachment : fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.blurback {
+	margin-top: 100px;
+	border-radius: 3px;
+	padding : 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	background: rgba(255,255,255,0.5);
+	box-shadow: 0 30px 80px 0 rgba(0,0,0,0.10);
+	z-index: -1;
+}
+.form {
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #FFFFFF;
+	border: 1px solid #979797;
+	box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.50);
+	border-radius: 3px;
+	width: 300px;
+	height: 36px;
+	margin-right: 10px;
+	z-index: 9999;
+}
+.formwrap {
+	width: 500px;
+}
+.buttonwrap {
+	padding: 10px;
+	width: 285px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.button1 {
+	display: inline-block;
+	width: 140px;
+	height: 40px;
+	background: #2980B9;
+	border-radius: 100px;
+	font-size: 12px;
+	color: #FFFFFF;
+	line-height: 33px;
+}
+.button2 {
+	width: 140px;
+	height: 40px;
+	background: #D55300;
+	border-radius: 100px;
+	font-size: 12px;
+	color: #FFFFFF;
+	line-height: 33px;
+}
+p {
+	padding-left: 20px;
+	width: 70px;
+	display: inline-block;
+}

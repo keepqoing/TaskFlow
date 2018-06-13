@@ -15,24 +15,16 @@ public class TaskFlowMemberProjectListCmd implements TaskFlowCmd {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response)  {
 		HttpSession session = request.getSession();
-
+		session.removeAttribute("currentProject");
+		
 		String tmp = (String) session.getAttribute("sessionID");
-		MemberDAO mdao = new MemberDAO();
-		MemberDO pCodeList = mdao.getInfo(tmp);
+		MemberDAO mdao = new MemberDAO();		
+		MemberDO curMember = mdao.getInfo(tmp); // 현재 로그인되어있는 회원의 정보를 불러온다.
 		ProjectDAO dao = new ProjectDAO();
-		ArrayList<ProjectDO> pList = dao.pjlist(pCodeList.getProject());
-		ArrayList<Integer> pmList = new ArrayList<Integer>();
-
-		for(ProjectDO i : pList) {
-			if(pCodeList.getId().equals(i.getpManager())) {
-				pmList.add(i.getpCode());
-			}
-		}
-
-
+		ArrayList<ProjectDO> pList = dao.pjlist(curMember.getProject()); // 현재 로그인되어있는 회원의 참여중인 프로젝트 목록
 
 		request.setAttribute("pList",pList);
-		request.setAttribute("pmList",pmList);
+		request.setAttribute("loginmember",tmp);
 
 	}
 

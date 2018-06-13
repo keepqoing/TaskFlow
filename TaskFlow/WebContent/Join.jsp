@@ -9,20 +9,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 가입</title>
-
+<link href="Joinstyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>회원 가입 화면</h1>
- <form action="join.do" method="post">
-	아이디<input type="text" name="id"><br />
-	비밀번호<input type="password" name="pw"><br />
-	이름<input type="text" name="name"><br />
-	이메일<input type="text" name="email"><br />
-	연락처<input type="text" name="phone"><br />
-	<input type="submit" value="회원가입" onclick="">
-	<input type=button value="취소" onClick="history.back();">
-  </form>
-  
- <a href="list.do">목록보기</a>
+<div class="blurback">
+	<h1>회원 가입</h1>
+	<form action="join.do" method="post">
+		<div class="formwrap">
+			<p>아이디</p>
+			<input class="form" type="text" name="id">
+		</div>
+		<div class="formwrap">
+			<p>비밀번호</p>
+			<input class="form" type="password" name="pw">
+		</div>
+		<div class="formwrap">
+			<p>이름</p>
+			<input class="form" type="text" name="name">
+		</div>
+		<div class="formwrap">
+			<p>이메일</p>
+			<input class="form" type="text" name="email">
+		</div>
+		<div class="formwrap">
+			<p>연락처</p>
+			<input class="form" type="text" name="phone">
+		</div>
+		<div class="buttonwrap">
+			<input class="button1" type="submit" value="회원가입" onclick="">
+			<input class="button2" type=button value="취소" onClick="history.back();">
+		</div>
+	</form>
+</div>
 </body>
 </html>

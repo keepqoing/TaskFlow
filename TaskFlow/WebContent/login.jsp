@@ -40,6 +40,7 @@ function checkValue()
 	<div class="snslogin"> <img src="assets/loginpage/google_icon.png" alt="" width="48" height="48" class="googleplus"/> <img src="assets/loginpage/facebook_icon.png" alt="" width="48" height="48" class="facebook"/> <img src="assets/loginpage/kakako_icon.png" alt="" width="48" height="48" class="kakaotalk"/> </div>
 </form>
 <% 
+
             // 아이디, 비밀번호가 틀릴경우 화면에 메시지 표시
             // LoginPro.jsp에서 로그인 처리 결과에 따른 메시지를 보낸다.
             String msg=request.getParameter("msg");

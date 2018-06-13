@@ -8,19 +8,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>프로젝트 생성</title>
+<title>공지사항 생성</title>
 
 </head>
 <body>
-<h1>프로젝트 생성 화면</h1>
- <form action="createproject.do" method="post">
-	프로젝트 이름<input type="text" name="pName"><br />
-	프로젝트 설명<input type="text" name="pDescript"><br />
-	<input type="hidden" name="pManager" value="이민섭">
-	<input type="submit" value="프로젝트 생성">
+<h1>공지사항 생성 화면</h1>
+ <form action="createnotice.do" method="post">
+	공지사항 이름<input type="text" name="nName"><br />
+	공지사항 설명<input type="text" name="nDescript"><br />
+	<input type="hidden" name="nFrom" value="${curProject }">
+	<input type="submit" value="공지사항 생성">
 	<input type=button value="취소" onClick="history.back();">
   </form>
   
- <a href="pjlist.do">프로젝트 목록보기</a>
+ <a href="projectNotice.do">공지사항 목록보기</a>
 </body>
 </html>

@@ -16,8 +16,7 @@ public class TaskFlowMemberLoginCmd implements TaskFlowCmd {
 		HttpSession session = request.getSession();
 		
 		MemberDAO dao = new MemberDAO();
-		int check = dao.loginCheck(id, pw);
-		
+		int check = dao.loginCheck(id, pw);	
 		String msg = "";
 		if(check == 1) {
 			session.setAttribute("sessionID",id);
@@ -26,7 +25,6 @@ public class TaskFlowMemberLoginCmd implements TaskFlowCmd {
 				session.setAttribute("sessionID", id);
 			}
 			
-			System.out.println("By TFMLC sessionID = "+id);
 			msg = "pjlist.do";
 		}
 		

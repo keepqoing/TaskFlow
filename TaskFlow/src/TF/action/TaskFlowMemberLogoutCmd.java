@@ -12,7 +12,11 @@ public class TaskFlowMemberLogoutCmd implements TaskFlowCmd {
 		HttpSession session = request.getSession();
 		
 		String msg = "login.jsp";
-		session.invalidate();
+		
+		
+		
+		session.removeAttribute("sessionID");
+		//session.invalidate();
 		
 		request.setAttribute("msg", msg);
 	}

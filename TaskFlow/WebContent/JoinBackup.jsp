@@ -8,19 +8,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>프로젝트 생성</title>
+<title>회원 가입</title>
 
 </head>
 <body>
-<h1>프로젝트 생성 화면</h1>
- <form action="createproject.do" method="post">
-	프로젝트 이름<input type="text" name="pName"><br />
-	프로젝트 설명<input type="text" name="pDescript"><br />
-	<input type="hidden" name="pManager" value="이민섭">
-	<input type="submit" value="프로젝트 생성">
+<h1>회원 가입 화면</h1>
+ <form action="join.do" method="post">
+	아이디<input type="text" name="id"><br />
+	비밀번호<input type="password" name="pw"><br />
+	이름<input type="text" name="name"><br />
+	이메일<input type="text" name="email"><br />
+	연락처<input type="text" name="phone"><br />
+	<input type="submit" value="회원가입" onclick="">
 	<input type=button value="취소" onClick="history.back();">
   </form>
   
- <a href="pjlist.do">프로젝트 목록보기</a>
+ <a href="list.do">목록보기</a>
 </body>
 </html>

@@ -94,6 +94,7 @@ public class MemberDAO {
 		}
 		return data;
 	}
+	
 	//	
 	public void update(String _id, String _pw, String _name, String _email, String _phone ) {
 		connectDB();

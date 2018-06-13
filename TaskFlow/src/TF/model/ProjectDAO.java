@@ -136,7 +136,7 @@ public class ProjectDAO {
 			pstmt.setInt(1, _pCode);
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
-
+		
 			data.setpCode(rs.getInt("pCode"));
 			data.setpName(rs.getString("pName"));
 			data.setpDescript(rs.getString("pDescript"));

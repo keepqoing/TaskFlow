@@ -16,6 +16,7 @@ public class TaskFlowMemberLogoutCmd implements TaskFlowCmd {
 		
 		
 		session.removeAttribute("sessionID");
+		session.removeAttribute("currentSubmission");
 		//session.invalidate();
 		
 		request.setAttribute("msg", msg);

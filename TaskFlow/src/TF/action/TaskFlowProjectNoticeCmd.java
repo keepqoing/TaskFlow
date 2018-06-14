@@ -34,7 +34,6 @@ public class TaskFlowProjectNoticeCmd implements TaskFlowCmd {
 		request.setAttribute("User", currentUser);
 		request.setAttribute("pManager", pManager);
 		
-		System.out.println("User = " + currentUser + " pManager = " +pManager);
 		
 		//request.setAttribute("curProject", nFrom);
 	}

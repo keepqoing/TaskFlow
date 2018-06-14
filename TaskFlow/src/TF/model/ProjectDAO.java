@@ -46,7 +46,6 @@ public class ProjectDAO {
 	public ArrayList<ProjectDO> pjlist(String pCodeList){
 		connectDB();
 		String query = "select * from PROJECT where pCode in";
-		System.out.println(pCodeList);
 			query += "(" + pCodeList + ")";
 		ArrayList<ProjectDO> datas = new ArrayList<ProjectDO>();
 

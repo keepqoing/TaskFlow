@@ -23,14 +23,29 @@
 			<c:when test="${pManager eq User }">
 				<table border="1" cellpadding="10px">
 					<tr>
-						<td colspan="4">${aaa.subpName}</td>
+						<td colspan="4"><a href="SubmissionList.do?subpId=${aaa.subpId}">${aaa.subpName}</a></td>
 						<td>${aaa.subpStartDate}</td>
 						<td>${aaa.subpEndDate}</td>
+						<c:choose>
+							<c:when test="${aaa.subpState eq 0}">
+								<td>개시</td>
+							</c:when>
+							<c:when test="${aaa.subpState eq 1}">
+								<td>진행</td>
+							</c:when>
+							<c:when test="${aaa.subpState eq 2}">
+								<td>검토</td>
+							</c:when>
+							<c:when test="${aaa.subpState eq 3}">
+								<td>완료</td>
+							</c:when>
+						</c:choose>
+						<td><a href="Submissionuploadui.do?subpId=${aaa.subpId}">제출</a></td>
 						<td><a href="SubProjectmodify.do?subpId=${aaa.subpId}">수정</a></td>
 						<td><a href="SubProjectdelete.do?subpId=${aaa.subpId}">삭제</a></td>
 					</tr>
 					<tr>
-						<td colspan="8">${aaa.subpDescript}</td>
+						<td colspan="10">${aaa.subpDescript}</td>
 					</tr>
 				</table>
 			</c:when>
@@ -38,12 +53,27 @@
 			<c:otherwise>
 				<table border="1" cellpadding="10px">
 					<tr>
-						<td colspan="6">${aaa.subpName}</td>
+						<td colspan="4"><a href="SubmissionList.do?subpId=${aaa.subpId}">${aaa.subpName}</a></td>
 						<td>${aaa.subpStartDate}</td>
 						<td>${aaa.subpEndDate}</td>
+						<c:choose>
+							<c:when test="${aaa.subpState eq 0}">
+								<td>개시</td>
+							</c:when>
+							<c:when test="${aaa.subpState eq 1}">
+								<td>진행</td>
+							</c:when>
+							<c:when test="${aaa.subpState eq 2}">
+								<td>검토</td>
+							</c:when>
+							<c:when test="${aaa.subpState eq 3}">
+								<td>완료</td>
+							</c:when>
+						</c:choose>
+						<td><a href="SubmissionUpload.do?subpId=${aaa.subpId}">제출</a></td>
 					</tr>
 					<tr>
-						<td colspan="8">${aaa.subpDescript}</td>
+						<td colspan="10">${aaa.subpDescript}</td>
 					</tr>
 				</table>
 			</c:otherwise>

@@ -26,13 +26,15 @@ public class TaskFlowSubProjectCmd implements TaskFlowCmd {
 		SubProjectDAO subPdao = new SubProjectDAO();
 		ArrayList<SubProjectDO> subPList = subPdao.SubProjectList(Integer.parseInt(nFrom));
 		
+		for(SubProjectDO i : subPList) {
+			i.setSubpStartDate(i.getSubpStartDate().substring(0, 10));
+			i.setSubpEndDate(i.getSubpEndDate().substring(0, 10));			
+		}
+		
 		ProjectDAO Pdao = new ProjectDAO();
 		ProjectDO pData = Pdao.getInfo(Integer.parseInt(nFrom));
 		String pManager = pData.getpManager();
 		
-		for(SubProjectDO i : subPList) {
-			System.out.println(i.getSubpName());
-		}
 		
 		request.setAttribute("SubpList", subPList);
 		request.setAttribute("pCode", nFrom);

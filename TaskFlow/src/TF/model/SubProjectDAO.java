@@ -158,6 +158,26 @@ public class SubProjectDAO {
 		}
 	}
 	
+	// 공지사항 갱신
+		public void changeState(int _SubpState, int _SubpId) {
+			connectDB();
+			String query = "update SubProject set SubpState=? where SubpId=?";
+
+			try {
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, _SubpState);
+				pstmt.setInt(2, _SubpId);
+
+				int n = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return;
+			}
+			finally {
+				closeDB();
+			}
+		}
+	
 
 	public void deleteSubProject(int _SubpId) {
 		connectDB();
@@ -165,6 +185,23 @@ public class SubProjectDAO {
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, _SubpId);
+
+			int n = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		}
+		finally {
+			closeDB();
+		}
+	}
+	
+	public void deleteProject(int _SubpFrom) {
+		connectDB();
+		String query = "delete from SubProject where SubpFrom=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, _SubpFrom);
 
 			int n = pstmt.executeUpdate();
 		} catch (SQLException e) {

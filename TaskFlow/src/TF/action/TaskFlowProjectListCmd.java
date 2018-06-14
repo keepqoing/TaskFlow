@@ -15,6 +15,12 @@ public class TaskFlowProjectListCmd implements TaskFlowCmd {
 		ProjectDAO dao = new ProjectDAO();
 		ArrayList<ProjectDO> pList = dao.list();
 		
+		for(ProjectDO i : pList) {
+			System.out.println("개설자 = "+i.getpManager());
+			System.out.println("참여자 = "+i.getpMember());
+		}
+		
+		
 		request.setAttribute("pList",pList);
 	}
 

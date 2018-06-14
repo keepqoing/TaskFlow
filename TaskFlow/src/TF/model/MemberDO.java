@@ -7,18 +7,20 @@ public class MemberDO {
 	private String email;
 	private String phone;
 	private String project;
+	private String filename;
 
 	public MemberDO() {
 		
 	}
 	
-	public MemberDO(String id, String pw, String name, String email, String phone, String project) {
+	public MemberDO(String id, String pw, String name, String email, String phone, String project, String filename) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.project = project;
+		this.filename = filename;
 	}
 	
 	public String getId() {
@@ -67,5 +69,13 @@ public class MemberDO {
 
 	public void setProject(String project) {
 		this.project = project;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 }

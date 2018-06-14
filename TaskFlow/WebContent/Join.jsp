@@ -14,7 +14,7 @@
 <body>
 <div class="blurback">
 	<h1>회원 가입</h1>
-	<form action="join.do" method="post">
+	<form action="join.do" method="post" enctype="multipart/form-data">
 		<div class="formwrap">
 			<p>아이디</p>
 			<input class="form" type="text" name="id">
@@ -34,6 +34,10 @@
 		<div class="formwrap">
 			<p>연락처</p>
 			<input class="form" type="text" name="phone">
+		</div>
+		<div class="formwrap">
+			<p>프로필 사진</p>
+			<input class="form" type="file" name="filename">
 		</div>
 		<div class="buttonwrap">
 			<input class="button1" type="submit" value="회원가입" onclick="">

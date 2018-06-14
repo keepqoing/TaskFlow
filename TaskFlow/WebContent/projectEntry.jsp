@@ -19,13 +19,12 @@
 
 	<table border="1" cellpadding="10px">
 		<tr>
-			<td colspan = "3">공지사항</td>
+			<td colspan = "2">공지사항</td>
 			<td><a href="projectNotice.do?pCode=${pCode}">더 보기</a></td>
 		</tr>
 		
 		<tr>
 			<td>제목</td>
-			<td>내용</td>
 			<td>작성자</td>
 			<td>작성일자</td>
 		</tr>
@@ -33,7 +32,6 @@
 		<c:forEach var="aaa" items="${NoticeList}">
 			<tr>
 				<td>${aaa.nName}</td>
-				<td>${aaa.nDescript}</td>
 				<td>${aaa.nWriter}</td>
 				<td>${aaa.nDate}</td>
 			</tr>
@@ -50,7 +48,6 @@
 		
 		<tr>
 			<td>제목</td>
-			<td>내용</td>
 			<td>시작일</td>
 			<td>종료일</td>
 			<td>상태</td>
@@ -58,24 +55,65 @@
 		<c:forEach var="bbb" items="${subProjectList}">
 			<tr>
 				<td>${bbb.subpName}</td>
-				<td>${bbb.subpDescript}</td>
 				<td>${bbb.subpStartDate}</td>
 				<td>${bbb.subpEndDate}</td>
-				<td>${bbb.subpState}</td>
+
+
+				<c:choose>
+					<c:when test="${bbb.subpState eq 0}">
+						<td>개시</td>
+					</c:when>
+					<c:when test="${bbb.subpState eq 1}">
+						<td>진행</td>
+					</c:when>
+					<c:when test="${bbb.subpState eq 2}">
+						<td>검토</td>
+					</c:when>
+					<c:when test="${bbb.subpState eq 3}">
+						<td>완료</td>
+					</c:when>
+				</c:choose>
 			</tr>
 		</c:forEach>
 		 
 	</table>
-
+	
+	
 	<table border="1" cellpadding="10px">
+			<tr>
+				<td><a href="#">${pManager.name}</td>
+			</tr>
 		<tr>
-			<td>${pManager }</td>
-			<c:forEach var="bbb" items="${pMember }">
-				<td>${bbb}</td>
-			</c:forEach>
-
+			<c:choose>
+				<c:when test="${!empty pManager.filename}">
+					<td><img src="file/${pManager.filename }" width="50" height="50"></td>
+				</c:when>
+				<c:otherwise>
+					<td>물음표 이미지</td>
+				</c:otherwise>
+			</c:choose>
 		</tr>
 	</table>
+		
+	<c:forEach var="bbb" items="${pMember}">
+		<table border="1" cellpadding="10px">
+			<tr>
+				<td><a href="#">${bbb.name}</td>
+			</tr>
+			<tr>
+				<c:choose>
+					<c:when test="${!empty bbb.filename}">
+						<td><img src="file/${bbb.filename }" width="50" height="50"></td>
+					</c:when>
+					<c:otherwise>
+						<td>물음표 이미지</td>
+					</c:otherwise>
+				</c:choose>
+			</tr>
+		</table>
+	</c:forEach>
+
+
 
 <!--  
 	<a href="createnoticeui.do">공지사항 생성</a>

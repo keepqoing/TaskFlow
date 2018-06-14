@@ -32,6 +32,7 @@ public class MemberDAO {
 				tmp.setEmail(rs.getString("email"));
 				tmp.setPhone(rs.getString("phone"));
 				tmp.setProject(rs.getString("project"));
+				tmp.setFilename(rs.getString("filename"));
 				datas.add(tmp);
 			}
 			rs.close();
@@ -44,9 +45,9 @@ public class MemberDAO {
 		return datas;
 	}
 
-	public void join(String _id, String _pw, String _name, String _email, String _phone) {
+	public void join(String _id, String _pw, String _name, String _email, String _phone, String _filename) {
 		connectDB();
-		String query = "insert into member (id, pw, name, email, phone) values(?,?,?,?,?)";		
+		String query = "insert into member (id, pw, name, email, phone, filename) values(?,?,?,?,?,?)";
 
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -55,6 +56,7 @@ public class MemberDAO {
 			pstmt.setString(3, _name);
 			pstmt.setString(4, _email);
 			pstmt.setString(5, _phone);
+			pstmt.setString(6, _filename);
 
 			int n = pstmt.executeUpdate();
 
@@ -83,6 +85,7 @@ public class MemberDAO {
 			data.setEmail(rs.getString("email"));
 			data.setPhone(rs.getString("phone"));
 			data.setProject(rs.getString("project"));
+			data.setFilename(rs.getString("filename"));
 		}
 
 		catch(SQLException e) {
@@ -107,7 +110,7 @@ public class MemberDAO {
 			pstmt.setString(3, _email);
 			pstmt.setString(4, _phone);
 			pstmt.setString(5, _id);
-
+			
 			int n = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

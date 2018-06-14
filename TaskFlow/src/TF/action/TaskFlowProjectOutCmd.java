@@ -18,15 +18,11 @@ public class TaskFlowProjectOutCmd implements TaskFlowCmd {
 		MemberDAO mdao = new MemberDAO();
 		ProjectDAO dao = new ProjectDAO();
 
-		System.out.println("id is " + id);
-		System.out.println("pCode is " + pCode);
 		// 로그인되어있는 회원의 멤버 정보에서 해당 프로젝트 정보 삭제
 		MemberDO curMember = mdao.getInfo(id);
 		String pList = curMember.getProject();
-		System.out.println("PList is " + pList);
 		String wantToDel = "";
 		if(pList.equals(pCode)) {
-			System.out.println("Dddddd");
 			pList = null;
 		}
 		else {
@@ -43,7 +39,6 @@ public class TaskFlowProjectOutCmd implements TaskFlowCmd {
 		// 프로젝트의 pMember에서 로그인되어있는 회원 정보 삭제.
 		ProjectDO selProject = dao.getInfo(Integer.parseInt(pCode));
 		String pMemList = selProject.getpMember();
-		System.out.println("pMemList id " + pMemList);
 		wantToDel = "";
 		
 		if(pMemList.equals(id))

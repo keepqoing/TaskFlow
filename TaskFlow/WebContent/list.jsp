@@ -35,6 +35,7 @@
 			<td>EMAIL</td>
 			<td>PHONE</td>
 			<td>PROJECT</td>
+			<td>FILE</td>
 		</tr>
 
  		<c:forEach var="aaa" items="${list}" >
@@ -45,6 +46,9 @@
 				<td>${aaa.email}</td>
 				<td>${aaa.phone}</td>
 				<td>${aaa.project}</td>
+				<c:if test="${!empty aaa.filename}">
+					<td><img src="file/${aaa.filename}" width="200" height="200">${aaa.filename}</td>
+				</c:if>
 			</tr>
 		</c:forEach>
 

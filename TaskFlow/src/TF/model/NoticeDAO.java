@@ -173,6 +173,23 @@ public class NoticeDAO {
 		}
 	}
 	
+	public void deleteProject(int _nFrom) {
+		connectDB();
+		String query = "delete from notice where nfrom=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, _nFrom);
+
+			int n = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		}
+		finally {
+			closeDB();
+		}
+	}
+	
 	
 
 	public void connectDB() {

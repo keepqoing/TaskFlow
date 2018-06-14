@@ -37,6 +37,10 @@ import TF.action.TaskFlowSubProjectCreateCmd;
 import TF.action.TaskFlowSubProjectDeleteCmd;
 import TF.action.TaskFlowSubProjectModifyCmd;
 import TF.action.TaskFlowSubProjectUpdateCmd;
+import TF.action.TaskFlowSubmissionCreateCmd;
+import TF.action.TaskFlowSubmissionDeleteCmd;
+import TF.action.TaskFlowSubmissionListCmd;
+import TF.action.TaskFlowSubmissionUploadCmd;
 
 /**
  * Servlet implementation class MemberFrontController1
@@ -185,6 +189,7 @@ public class FrontController extends HttpServlet {
 			nextPage = "logout.do";
 		}	
 
+
 		//공지사항 페이지
 		if(com.equals("/projectNotice.do")){
 			command = new TaskFlowProjectNoticeCmd();
@@ -223,6 +228,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			nextPage = "projectNotice.do";
 		}
+
 
 
 		//과제 페이지
@@ -265,6 +271,33 @@ public class FrontController extends HttpServlet {
 		}
 
 
+
+		//과제 제출물 페이지
+		if(com.equals("/SubmissionList.do")){
+			command = new TaskFlowSubmissionListCmd();
+			command.execute(request, response);
+			nextPage = "SubmissionList.jsp";
+		}
+
+		//과제 제출 폼
+		if(com.equals("/Submissionuploadui.do")){
+			command = new TaskFlowSubmissionUploadCmd();
+			command.execute(request, response);
+			nextPage = "SubmissionUpload.jsp";
+		}
+		//과제 제출
+		if(com.equals("/SubProjectupload.do")){
+			command = new TaskFlowSubmissionCreateCmd();
+			command.execute(request, response);
+			nextPage = "SubmissionList.do";
+		}
+
+		//제출물 삭제
+		if(com.equals("/Submissiondelete.do")){
+			command = new TaskFlowSubmissionDeleteCmd();
+			command.execute(request, response);
+			nextPage = "SubmissionList.do";
+		}
 
 		//		
 		//		//�� �˻� �ϱ�

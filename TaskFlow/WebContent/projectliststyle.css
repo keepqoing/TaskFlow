@@ -26,7 +26,11 @@ html {
 	margin-bottom: 15px;
 	z-index: -1;
 }
-
+.addbutton{
+	width: 90%;
+	max-width: 180px;
+	max-height: 180px;
+}
 .projectediticon{
 	position: absolute;
 	right : 10px;

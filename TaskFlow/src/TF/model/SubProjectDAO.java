@@ -176,6 +176,23 @@ public class SubProjectDAO {
 		}
 	}
 	
+	public void deleteProject(int _SubpFrom) {
+		connectDB();
+		String query = "delete from SubProject where SubpFrom=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, _SubpFrom);
+
+			int n = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		}
+		finally {
+			closeDB();
+		}
+	}
+	
 	
 
 	public void connectDB() {

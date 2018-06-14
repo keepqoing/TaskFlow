@@ -37,9 +37,11 @@ import TF.action.TaskFlowSubProjectCreateCmd;
 import TF.action.TaskFlowSubProjectDeleteCmd;
 import TF.action.TaskFlowSubProjectModifyCmd;
 import TF.action.TaskFlowSubProjectUpdateCmd;
+import TF.action.TaskFlowSubmissionAcceptCmd;
 import TF.action.TaskFlowSubmissionCreateCmd;
 import TF.action.TaskFlowSubmissionDeleteCmd;
 import TF.action.TaskFlowSubmissionListCmd;
+import TF.action.TaskFlowSubmissionRejectCmd;
 import TF.action.TaskFlowSubmissionUploadCmd;
 
 /**
@@ -286,7 +288,7 @@ public class FrontController extends HttpServlet {
 			nextPage = "SubmissionUpload.jsp";
 		}
 		//과제 제출
-		if(com.equals("/SubProjectupload.do")){
+		if(com.equals("/Submissionupload.do")){
 			command = new TaskFlowSubmissionCreateCmd();
 			command.execute(request, response);
 			nextPage = "SubmissionList.do";
@@ -297,6 +299,20 @@ public class FrontController extends HttpServlet {
 			command = new TaskFlowSubmissionDeleteCmd();
 			command.execute(request, response);
 			nextPage = "SubmissionList.do";
+		}
+
+		//제출물 거절 (관리자 기능)
+		if(com.equals("/reject.do")){
+			command = new TaskFlowSubmissionRejectCmd();
+			command.execute(request, response);
+			nextPage = "projectEntry.do";
+		}
+
+		//제출물 확인 (관리자 기능)
+		if(com.equals("/accept.do")){
+			command = new TaskFlowSubmissionAcceptCmd();
+			command.execute(request, response);
+			nextPage = "projectEntry.do";
 		}
 
 		//		

@@ -12,10 +12,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>프로젝트 공지사항 목록 보기</title>
+<title>프로젝트  메인페이지</title>
 </head>
 <body>
-	<h1>프로젝트 공지사항 목록 보기</h1>
+	<h1>프로젝트  메인페이지</h1>
 
 	<table border="1" cellpadding="10px">
 		<tr>

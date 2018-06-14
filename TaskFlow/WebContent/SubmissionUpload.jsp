@@ -17,7 +17,7 @@
 <body>
 	<h1>과제 제출 화면</h1>
 
-	<form action="SubProjectupload.do" method="post"
+	<form action="Submissionupload.do" method="post"
 		enctype="multipart/form-data">
 		<table border="1" cellpadding="10px">
 			<tr>
